@@ -32,7 +32,7 @@ public static class FileUtil
     private static extern int RmGetList(uint dwSessionHandle,
         out uint pnProcInfoNeeded,
         ref uint pnProcInfo,
-        [In] [Out] RM_PROCESS_INFO[] rgAffectedApps,
+        [In][Out] RM_PROCESS_INFO[] rgAffectedApps,
         ref uint lpdwRebootReasons);
 
     /// <summary>
@@ -90,7 +90,7 @@ public static class FileUtil
                 {
                     processes = new List<Process>((int)pnProcInfo);
 
-                    // Enumerate all of the results and add them to the 
+                    // Enumerate all of the results and add them to the
                     // list to be returned
                     for (var i = 0; i < pnProcInfo; i++)
                         try

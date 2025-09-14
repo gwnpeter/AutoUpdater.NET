@@ -46,18 +46,23 @@ public partial class FormMain : Form
                 case "--input":
                     zipPath = args[index + 1];
                     break;
+
                 case "--output":
                     extractionPath = args[index + 1];
                     break;
+
                 case "--current-exe":
                     currentExe = args[index + 1];
                     break;
+
                 case "--updated-exe":
                     updatedExe = args[index + 1];
                     break;
+
                 case "--clear":
                     clearAppDirectory = true;
                     break;
+
                 case "--args":
                     commandLineArgs = args[index + 1];
                     break;

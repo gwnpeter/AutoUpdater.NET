@@ -3,59 +3,35 @@
     <PropertyGroup>
         <ProjectGuid>{91DE558C-6DB8-429B-A069-C0491DCFF15B}</ProjectGuid>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net45</TargetFramework>
+        <TargetFramework>net9.0-windows</TargetFramework>
         <UseWindowsForms>true</UseWindowsForms>
         <AssemblyTitle>ZipExtractor</AssemblyTitle>
         <Company>RBSoft</Company>
         <Product>ZipExtractor</Product>
-        <Copyright>Copyright © 2012-2024 RBSoft</Copyright>
-        <Version>1.5.4.0</Version>
-        <AssemblyVersion>1.5.4.0</AssemblyVersion>
-        <FileVersion>1.5.4.0</FileVersion>
-        <ApplicationVersion>1.5.4.0</ApplicationVersion>
+        <Copyright>Copyright © 2012-2025 RBSoft</Copyright>
         <ApplicationIcon>ZipExtractor.ico</ApplicationIcon>
-        <ApplicationManifest>app.manifest</ApplicationManifest>
-        <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>ZipExtractor.snk</AssemblyOriginatorKeyFile>
-        <NeutralLanguage>en</NeutralLanguage>
-        <LangVersion>default</LangVersion>
-        <IsPackable>false</IsPackable>
+        <Version>1.6.0</Version>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(TargetFramework)' != 'net45' ">
-        <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
-        <PublishSingleFile>true</PublishSingleFile>
-        <SelfContained>false</SelfContained>
-        <PublishTrimmed>false</PublishTrimmed>
-        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <DebugType>full</DebugType>
-        <DebugSymbols>true</DebugSymbols>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <OutputPath>..\AutoUpdater.NET\Resources</OutputPath>
-        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-        <DebugType>none</DebugType>
-        <DebugSymbols>false</DebugSymbols>
-    </PropertyGroup>
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-        <Reference Include="System.IO.Compression"/>
-        <Reference Include="System.IO.Compression.FileSystem"/>
-        <Reference Include="System.Windows.Forms"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Compile Update="Properties\Settings.Designer.cs">
-            <DesignTimeSharedInput>True</DesignTimeSharedInput>
-            <AutoGen>True</AutoGen>
-            <DependentUpon>Settings.settings</DependentUpon>
-        </Compile>
-    </ItemGroup>
-    <ItemGroup>
-        <None Update="Properties\Settings.settings">
-            <Generator>SettingsSingleFileGenerator</Generator>
-            <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-        </None>
-    </ItemGroup>
-
+	<ItemGroup>
+		<PackageReference Include="PublishAotCompressed" Version="1.0.5" />
+		<PackageReference Include="VC-LTL" Version="5.2.2" />
+		<PackageReference Include="WinFormsComInterop" Version="0.5.0" />
+		<PackageReference Include="YY-Thunks" Version="1.1.8" />
+		<RdXmlFile Include="rd.xml" />
+	</ItemGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+		<DebugType>None</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+		<DefineDebug>false</DefineDebug>
+		<WindowsSupportedOSPlatformVersion>5.1</WindowsSupportedOSPlatformVersion>
+		<TargetPlatformMinVersion>5.1</TargetPlatformMinVersion>
+		<RuntimeIdentifier>win-x86</RuntimeIdentifier>
+		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+		<CustomResourceTypesSupport>true</CustomResourceTypesSupport>
+		<PublishTrimmed>true</PublishTrimmed>
+		<_SuppressWinFormsTrimError>true</_SuppressWinFormsTrimError>
+		<PublishAot>true</PublishAot>
+		<OptimizationPreference>Size</OptimizationPreference>
+		<PublishLzmaCompressed>true</PublishLzmaCompressed>
+	</PropertyGroup>
 </Project>
